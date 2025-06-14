@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: backend-panaderia
+    env: java
+    buildCommand: "./mvnw clean install"
+    startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: DATABASE_URL
+        fromEnvVar: DATABASE_URL
+      - key: DATABASE_USERNAME
+        fromEnvVar: DATABASE_USERNAME
+      - key: DATABASE_PASSWORD
+        fromEnvVar: DATABASE_PASSWORD
