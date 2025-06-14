@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/panaderia
-    username: postgres
-    password: postgres
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -27,13 +27,16 @@ spring:
             enable: true
     from: "Panadería Ana <infopanaderiana@gmail.com>"
 
+server:
+  port: 8080
+
 jwt:
   secret: hGOTwJTBQ4bXyBKYcnpGOncg4LIjQqYUMVRzgq7KYlak7/SaHMXW9aLPNDi8VkHMGs/e6EZBR7zpwdlIkd2rrA==
-  expiration: 86400000 # 24 horas
+  expiration: 86400000
 
 cors:
   allowed-origins:
-    - http://localhost:3000
+    - "*" # En producción puedes poner solo tu dominio (por ejemplo: https://miapp.vercel.app)
   allowed-methods:
     - GET
     - POST
@@ -47,7 +50,6 @@ pagination:
   products-per-page: 6
   categories-per-page: 3
 
-
 cloudinary:
   api:
     key: 854467674143531
@@ -56,12 +58,7 @@ cloudinary:
 stripe:
   secret-key: sk_test_51RQaXXKPTe0UkSJT2dF4guA5kv3V9uNPvIUFFITtzBrnwkLVfg2TbfrL50xlNFQHMf3pfhgp7V2DQ81T8osOtmKK00xmBcoLf5
 
-
-jpa:
-  show-sql: false
-
 logging:
   level:
     org.hibernate.SQL: warn
     org.hibernate.type.descriptor.sql: warn
-
