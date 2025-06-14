@@ -5,6 +5,19 @@ spring:
     password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    from: "Panadería Ana <${MAIL_USERNAME}>"
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,19 +26,6 @@ spring:
       hibernate:
         format_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: infopanaderiana@gmail.com
-    password: pqmo fict dona xslw
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-    from: "Panadería Ana <infopanaderiana@gmail.com>"
 
 server:
   port: 8080
@@ -36,7 +36,7 @@ jwt:
 
 cors:
   allowed-origins:
-    - "*" # En producción puedes poner solo tu dominio (por ejemplo: https://miapp.vercel.app)
+    - "*"
   allowed-methods:
     - GET
     - POST
@@ -52,13 +52,17 @@ pagination:
 
 cloudinary:
   api:
-    key: 854467674143531
-    secret: VlmXFAI19OoLvL7vV6S1RqkRQtM
+    key: ${CLOUDINARY_API_KEY}
+    secret: ${CLOUDINARY_API_SECRET}
 
 stripe:
-  secret-key: sk_test_51RQaXXKPTe0UkSJT2dF4guA5kv3V9uNPvIUFFITtzBrnwkLVfg2TbfrL50xlNFQHMf3pfhgp7V2DQ81T8osOtmKK00xmBcoLf5
+  secret-key: ${STRIPE_SECRET_KEY}
 
 logging:
   level:
-    org.hibernate.SQL: warn
-    org.hibernate.type.descriptor.sql: warn
+    root: INFO
+    org.springframework: INFO
+
+spring:
+  profiles:
+    active: default
