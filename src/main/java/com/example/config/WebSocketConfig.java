@@ -13,7 +13,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		registry.addEndpoint("/ws")
-        .setAllowedOrigins("http://localhost:3000", "https://frontend-panaderia.vercel.app")
+        .setAllowedOrigins( "http://localhost:3000",
+    "https://frontend-panaderia-e85usm7ok-lucias-projects-d203b45e.vercel.app")
         .withSockJS();
 
 	}
