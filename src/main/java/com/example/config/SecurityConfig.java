@@ -50,8 +50,8 @@ public class SecurityConfig {
 		http.cors(cors -> cors.configurationSource(request -> {
 			var corsConfig = new CorsConfiguration();
 			corsConfig.setAllowedOrigins(List.of(
-    "http://localhost:3000",
-    "https://frontend-panaderia.vercel.app"
+"http://localhost:3000",
+  "https://frontend-panaderia-e85usm7ok-lucias-projects-d203b45e.vercel.app"
 ));
 
 			corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
