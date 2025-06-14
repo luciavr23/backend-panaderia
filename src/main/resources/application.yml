@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/panaderia
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: infopanaderiana@gmail.com
+    password: pqmo fict dona xslw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    from: "Panadería Ana <infopanaderiana@gmail.com>"
+
+jwt:
+  secret: hGOTwJTBQ4bXyBKYcnpGOncg4LIjQqYUMVRzgq7KYlak7/SaHMXW9aLPNDi8VkHMGs/e6EZBR7zpwdlIkd2rrA==
+  expiration: 86400000 # 24 horas
+
+cors:
+  allowed-origins:
+    - http://localhost:3000
+  allowed-methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  allowed-headers:
+    - Authorization
+    - Content-Type
+
+pagination:
+  products-per-page: 6
+  categories-per-page: 3
+
+
+cloudinary:
+  api:
+    key: 854467674143531
+    secret: VlmXFAI19OoLvL7vV6S1RqkRQtM
+
+stripe:
+  secret-key: sk_test_51RQaXXKPTe0UkSJT2dF4guA5kv3V9uNPvIUFFITtzBrnwkLVfg2TbfrL50xlNFQHMf3pfhgp7V2DQ81T8osOtmKK00xmBcoLf5
+
+
+jpa:
+  show-sql: false
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+    org.hibernate.type.descriptor.sql: warn
+
