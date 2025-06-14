@@ -1,13 +1,21 @@
 services:
   - type: web
     name: backend-panaderia
-    env: java
-    buildCommand: "./mvnw clean install"
-    startCommand: "java -jar target/*.jar"
+    env: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: Dockerfile
+    autoDeploy: true
     envVars:
       - key: DATABASE_URL
-        fromEnvVar: DATABASE_URL
+        fromDatabase:
+          name: panaderia_jz87
+          property: connectionString
       - key: DATABASE_USERNAME
-        fromEnvVar: DATABASE_USERNAME
+        fromDatabase:
+          name: panaderia_jz87
+          property: user
       - key: DATABASE_PASSWORD
-        fromEnvVar: DATABASE_PASSWORD
+        fromDatabase:
+          name: panaderia_jz87
+          property: password
